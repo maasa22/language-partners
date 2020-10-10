@@ -7,13 +7,46 @@
       <GoogleLoginPage />
     </div>
     <div v-else class="container">
-      <div class="buttonRegister">
-        <div>
-          <v-btn class="mr-4" @click="registerUser">登録</v-btn>
-        </div>
+      <div class="intro_of_app">
+        <v-card class="mx-auto my-12" max-width="374">
+          <template slot="progress">
+            <v-progress-linear
+              color="deep-purple"
+              height="10"
+              indeterminate
+            ></v-progress-linear>
+          </template>
+
+          <v-img height="250" :src="logo_img"></v-img>
+
+          <v-card-title>Language Matching Web App</v-card-title>
+          <v-card-text>
+            <div>
+              For english speakers, you can search and send likes to Japanese
+              speakers who want to learn English. If the Japanese speaker also
+              sends you a like, you can communicate with him/her in the chat
+              room.
+            </div>
+          </v-card-text>
+          <v-divider class="mx-4"></v-divider>
+          <v-card-title>
+            言語学習マッチングアプリ
+          </v-card-title>
+          <v-card-text>
+            <div>
+              日本語話者の方は、日本語を学びたい英語話者を探していいねを送ることができます。
+              その英語話者もあなたにいいねを送ると、マッチングが成立してwebアプリ内でチャットすることができます。
+            </div>
+          </v-card-text>
+        </v-card>
       </div>
       <v-text-field v-model="display_name" label="名前" required></v-text-field>
       <v-select v-model="gender" :items="gender_option" label="性別"></v-select>
+      <v-select
+        v-model="language_native"
+        :items="language_native_option"
+        label="母国語"
+      ></v-select>
       <v-select
         v-model="prefecture"
         :items="prefecture_option"
@@ -27,6 +60,11 @@
       </label>
       <div v-if="isValidationError">
         <v-alert type="error">全て選択して下さい。</v-alert>
+      </div>
+      <div class="buttonRegister">
+        <div>
+          <v-btn class="mr-4" @click="registerUser">登録</v-btn>
+        </div>
       </div>
       <div class="buttonLogin">
         <div class="buttonLogin">
@@ -57,12 +95,16 @@ export default {
     display_name: "",
     gender: null,
     age: null,
+    language_native: null,
     prefecture: null,
     profile_images: "",
     isValidationError: false,
     gender_option: ["male", "female"],
+    language_native_option: ["Japanese", "English"],
     prefecture_option: ["東京都", "埼玉県", "神奈川県"],
-    age_option: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30]
+    age_option: [18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30],
+    // logo_img: "https://cdn.vuetifyjs.com/images/cards/cooking.png"
+    logo_img: "/images/pexels-mentatdgt-1346197-small.jpg"
   }),
   mounted: function() {
     firebase.auth().onAuthStateChanged(userAuth => {
@@ -83,6 +125,7 @@ export default {
         !this.display_name ||
         !this.gender ||
         !this.age ||
+        !this.language_native ||
         !this.prefecture ||
         !this.profile_images
       ) {
@@ -93,6 +136,7 @@ export default {
           display_name: this.display_name,
           gender: this.gender,
           age: this.age,
+          language_native: this.language_native,
           prefecture: this.prefecture,
           mail: this.userAuth.email,
           profile_images: this.profile_images
@@ -143,7 +187,7 @@ export default {
 }
 
 .buttonRegister {
-  margin: 0px 0px 5px 0px;
+  margin: 50px 0px 0px 0px;
   text-align: center;
 }
 

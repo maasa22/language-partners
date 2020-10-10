@@ -89,12 +89,12 @@ export default {
             this.$router.push("/register");
           }
           snapshot.forEach(doc => {
-            this.loginUser.gender = doc.data().gender;
+            this.loginUser.language_native = doc.data().language_native;
             // 表示する性別
-            if (this.loginUser.gender == "male") {
-              this.loginUser.partnergender = "female";
+            if (this.loginUser.language_native == "Japanese") {
+              this.loginUser.partnerlanguage = "English";
             } else {
-              this.loginUser.partnergender = "male";
+              this.loginUser.partnerlanguage = "Japanese";
             }
             this.loginUser.id = doc.id;
             this.fetchUserData();
@@ -121,7 +121,7 @@ export default {
       firebase
         .firestore()
         .collection("users")
-        .where("gender", "==", this.loginUser.partnergender)
+        .where("language_native", "==", this.loginUser.partnerlanguage)
         .where("age", "<=", age_max)
         .where("age", ">=", age_min)
         // .where("prefecture", "in", prefectures) //1回しか使えないらしい。

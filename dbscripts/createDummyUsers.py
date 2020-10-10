@@ -68,15 +68,17 @@ profile_images_list = [
     "https://firebasestorage.googleapis.com/v0/b/matching-app-web2.appspot.com/o/imgs%2Fwoman3.jpg?alt=media&token=24b9a46d-7e5c-4bb1-a6cc-ec30f3eb6580", \
 ]
 introductions_list = [
-    "こんにちは。プロフィール見て下さりありがとうございます^^ 練馬区の病院で看護師しています♪ 女性ばかりの職場で中々いい出会いがなく、思い切って登録してみることにしました！",
-    "美味しい物が大好きで、趣味はカフェ巡りや、お店探しです。最近は料理にも挑戦中です😎 特にカフェごはんが好きで、恵比寿や代官山によく行きます。恵比寿や代官山は安くて美味しい隠れ家的なカフェが多いので好きです♩ ロコモコを食べて、紅茶とケーキを頂き友達と喋りながらゆっくり過ごすのが至福のときです☺",
+    # "こんにちは。プロフィール見て下さりありがとうございます^^ 練馬区の病院で看護師しています♪ 女性ばかりの職場で中々いい出会いがなく、思い切って登録してみることにしました！",
+    # "美味しい物が大好きで、趣味はカフェ巡りや、お店探しです。最近は料理にも挑戦中です😎 特にカフェごはんが好きで、恵比寿や代官山によく行きます。恵比寿や代官山は安くて美味しい隠れ家的なカフェが多いので好きです♩ ロコモコを食べて、紅茶とケーキを頂き友達と喋りながらゆっくり過ごすのが至福のときです☺",
+    "Hi! I've been bitten by the travel bug hard and have spent the last few months making my way around Tokyo. I feel most at home when I'm exploring different places and immersing myself in the rich culture and history of other countries. My work allows me to travel, which I'm super grateful for, and I'd love to meet you if you're up for an adventure!",
+    "Hey there! I'd love to tell you about the time I got lost in Tokyo, but I'll save that for our first date. As you may have guessed, I'm up for a good adventure and travel about 3 months out of the year. I grew up in a small town and it's been my dream to see the world, one incredible town at a time."
 ]
 for i in range(3):
     doc_ref = db.collection('users').document(str(uuid.uuid4().hex))
     doc_ref.set({
         'display_name': random.choice(display_name_list),
         'gender': 'female', \
-        'language': 'english', \
+        'language_native': 'English', \
         # 'email' : mail_list[i],\
         'prefecture' : random.choice(prefecture_list), \
         'status_message' : random.choice(status_message_list),\
@@ -110,7 +112,7 @@ for i in range(3):
     doc_ref.set({
         'display_name': random.choice(display_name_list),
         'gender': 'male', \
-        'language': 'japanese', \
+        'language_native': 'Japanese', \
         # 'email' : mail_list[i],\
         'prefecture' : random.choice(prefecture_list), \
         'status_message' : random.choice(status_message_list),\
