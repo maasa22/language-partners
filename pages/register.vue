@@ -63,12 +63,12 @@
       </div>
       <div class="buttonRegister">
         <div>
-          <v-btn class="mr-4" @click="registerUser">登録</v-btn>
+          <v-btn x-large class="mr-4" @click="registerUser">登録</v-btn>
         </div>
       </div>
       <div class="buttonLogin">
         <div class="buttonLogin">
-          <v-btn @click="googleLogin"
+          <v-btn x-large @click="googleLogin"
             >(すでに登録済の方)<br />Googleでログイン</v-btn
           >
         </div>
