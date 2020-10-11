@@ -1,4 +1,6 @@
 # language-partners-github
+- https://language-partners-web.web.app
+- demo: https://youtu.be/ZWvHAbK58nY
 
 ## technologies
 - frontend: vue, nuxt, vuetify
