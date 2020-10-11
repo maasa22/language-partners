@@ -1,20 +1,12 @@
 # language-partners-github
 
-## Build Setup
+## technologies
+- frontend: vue, nuxt, vuetify
+- backend: firebase hosting, cloud firestore(real time database for chat functions), google login, storage(for profile images)
 
-```bash
-# install dependencies
-$ yarn install
-
-# serve with hot reload at localhost:3000
-$ yarn dev
-
-# build for production and launch server
-$ yarn build
-$ yarn start
-
-# generate static project
-$ yarn generate
-```
-
-For detailed explanation on how things work, check out [Nuxt.js docs](https://nuxtjs.org).
+## features
+- see a list of partners
+  - filter by age
+- send likes to potential partners
+- chat with patners who you matched
+- set profiles
